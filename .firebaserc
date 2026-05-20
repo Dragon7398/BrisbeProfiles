@@ -5,8 +5,11 @@
   "targets": {
     "rpelago-3af23": {
       "hosting": {
-        "profiles": []
+        "profiles": [
+          "archipelago-profiles"
+        ]
       }
     }
-  }
+  },
+  "etags": {}
 }
