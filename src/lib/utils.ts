@@ -1,6 +1,7 @@
 // Firebase keys cannot contain '.'. RPelago encodes '.' as '_' in handleIndex keys.
+// Discord usernames are forced lowercase, so normalise before lookup.
 export function encodeHandle(handle: string): string {
-  return handle.replace(/\./g, '_');
+  return handle.toLowerCase().replace(/\./g, '_');
 }
 
 export function fmtDate(ms: number | null | undefined): string {
