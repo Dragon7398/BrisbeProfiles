@@ -1,7 +1,8 @@
 export interface EventParticipation {
-  xp:    number;
-  tiles: number;
-  games: Record<string, true>;
+  xp:       number;
+  tiles?:   number;
+  missions?: number;
+  games:    Record<string, true>;
 }
 
 export interface ProfileRecord {
@@ -23,10 +24,12 @@ export interface Stat {
 
 export function eventToStats(eventId: string, part: EventParticipation): Stat[] {
   if (eventId.startsWith('rpelago')) {
-    return [
-      { key: 'xp',    label: 'TOTAL XP',              value: part.xp,    format: 'number' },
-      { key: 'tiles', label: 'TILES HELPED COMPLETE', value: part.tiles, format: 'number' },
+    const stats: Stat[] = [
+      { key: 'xp', label: 'TOTAL XP', value: part.xp, format: 'number' },
     ];
+    if (part.tiles)    stats.push({ key: 'tiles',    label: 'TILES PLAYED',    value: part.tiles,    format: 'number' });
+    if (part.missions) stats.push({ key: 'missions', label: 'MISSIONS PLAYED', value: part.missions, format: 'number' });
+    return stats;
   }
   return [];
 }
