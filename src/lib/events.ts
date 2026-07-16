@@ -19,13 +19,25 @@ export const EVENTS: EventDef[] = [
     name:       'RPelago',
     season:     'Season 1',
     shortLabel: 'RPELAGO · S1',
-    dates:      'May 2026 – Present',
+    dates:      'May 2026 – July 2026',
     tagline:    'Collaborative Archipelago metagame on a 5×7 grid.',
     lore:       'Players send adventurers to map tiles, complete randomizer challenges together, and unlock the boss.',
     badgeSrc:   '/assets/rpelago-badge.png',
     accent:     '#d6a64a',
-    status:     'active',
+    status:     'completed',
   },
+  {
+    id:         'casino_s1',
+    name:       'RPelago Casino',
+    season:     'Season 1',
+    shortLabel: 'CASINO · S1',
+    dates:      'TBA · 2026',
+    tagline:    'Archipelago metagame with a casino twist.',
+    lore:       'Join the RPelago Casino; draw a deck of challenges and select which games to play in your randomizer.',
+    badgeSrc:   null,
+    accent:     '#7e3b6b',
+    status:     'upcoming',
+  }
 ];
 
 export function eventById(id: string | null | undefined): EventDef | undefined {
