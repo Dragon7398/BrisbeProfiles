@@ -31,12 +31,12 @@ export const EVENTS: EventDef[] = [
     name:       'RPelago Casino',
     season:     'Season 1',
     shortLabel: 'CASINO · S1',
-    dates:      'TBA · 2026',
+    dates:      'July 2026 - Present',
     tagline:    'Archipelago metagame with a casino twist.',
     lore:       'Join the RPelago Casino; draw a deck of challenges and select which games to play in your randomizer.',
     badgeSrc:   null,
     accent:     '#7e3b6b',
-    status:     'upcoming',
+    status:     'active',
   }
 ];
 

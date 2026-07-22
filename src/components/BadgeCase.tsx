@@ -45,16 +45,21 @@ interface Props {
 
 export default function BadgeCase({ record }: Props) {
   const playedIds = new Set(Object.keys(record.events ?? {}));
-  const playedCount = EVENTS.filter(e => playedIds.has(e.id)).length;
+  // Completed events the player missed are hidden entirely — no "?" disk for a
+  // season they can never go back and earn.
+  const shownEvents = EVENTS.filter(e => playedIds.has(e.id) || e.status !== 'completed');
+  const playedCount = shownEvents.filter(e => playedIds.has(e.id)).length;
+
+  if (shownEvents.length === 0) return null;
 
   return (
     <div className="ap-card">
       <div className="ap-badge-case-header">
         <span className="ap-badge-case-title">Discovered Islands</span>
-        <span className="ap-count-pill">{playedCount} / {EVENTS.length}</span>
+        <span className="ap-count-pill">{playedCount} / {shownEvents.length}</span>
       </div>
       <div className="ap-badge-grid">
-        {EVENTS.map(event => (
+        {shownEvents.map(event => (
           <BadgeDisk
             key={event.id}
             event={event}
